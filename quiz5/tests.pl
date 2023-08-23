@@ -31,3 +31,50 @@ tran(ono,six).
 tran(whitu,seven). 
 tran(waru,eight). 
 tran(iwa,nine).
+
+q3_test1_answer :-
+    listtran(X, [one, seven, six, two]),
+    writeln(X).
+
+q3_test2_answer :-
+    listtran([tahi], [one, eight]),
+    writeln('The predicate should not succeed for lists of different lengths!').
+
+q3_test2_answer :-
+    writeln('OK').
+
+tran(eins,1). 
+tran(zwei,2). 
+tran(drei,3). 
+tran(vier,4). 
+tran(fuenf,5). 
+tran(sechs,6). 
+tran(sieben,7). 
+tran(acht,8). 
+tran(neun,9).
+
+q3_test3_answer :-
+    listtran([eins, neun, zwei], X),
+    writeln(X).
+
+
+q4_test1_answer :-
+    twice(L, [1, 1, 2, 2, 3, 3]),
+    writeln(L).
+
+q5_test1_answer :-
+    remove(term2, [term1, term2, term3], [term1, term3]),
+    write('OK').
+
+q6_test1_answer :-
+    split_odd_even([a,b,c,d,e,f,g], A, B),
+    write(A),
+    writeln(B).
+
+q6_test2_answer :-
+    split_odd_even([1,2,3,5], A, B),
+    write(A),
+    writeln(B).
+
+q7_test3_answer :- preorder(tree(a, tree(b, leaf(c), leaf(d)), leaf(e)), T), 
+               writeln(T).
