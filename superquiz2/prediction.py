@@ -49,6 +49,10 @@ def systematic_expression_recursive(syms: Symbols, depth):
     if depth == 0:
         for atom in systematic_atom(syms): yield atom
     elif depth==1:
+        # For level-1 recursion, use some intelligence. Skip expressions:
+        #  - of only constants (ex: 1-2)
+        #  - that are reorderings of the same expression (ex: 1+2, 2+1)
+        #  - that involve restatements of the same constant op (ex: x+1, x- (-1))
         for expr in systematic_funcs(syms, False, False, 0): yield expr
     elif depth==2:
         # Switch to an expression.
