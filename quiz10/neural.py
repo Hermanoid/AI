@@ -25,67 +25,81 @@ def learn_perceptron_parameters(weights, bias, training_examples, learn_rate, ma
             all_good = False
             weights += learn_rate * (expected - actual) * input
             bias += learn_rate * (expected - actual)
+            print("Example", [input, expected], "weights", weights, "bias", bias)
         if all_good: break
     return list(weights), bias
 
 if __name__ == "__main__":
-    weights = [2, -4]
-    bias = 0
-    perceptron = construct_perceptron(weights, bias)
+    # weights = [2, -4]
+    # bias = 0
+    # perceptron = construct_perceptron(weights, bias)
 
-    print(perceptron([1, 1]))
-    print(perceptron([2, 1]))
-    print(perceptron([3, 1]))
-    print(perceptron([-1, -1]))
+    # print(perceptron([1, 1]))
+    # print(perceptron([2, 1]))
+    # print(perceptron([3, 1]))
+    # print(perceptron([-1, -1]))
 
-    print("------")
+    # print("------")
 
-    perceptron = construct_perceptron([-1, 3], 2)
-    inputs = [[1, -1], [2, 1], [3, 1], [-1, -1]]
-    targets = [0, 1, 1, 0]
+    # perceptron = construct_perceptron([-1, 3], 2)
+    # inputs = [[1, -1], [2, 1], [3, 1], [-1, -1]]
+    # targets = [0, 1, 1, 0]
 
-    print(accuracy(perceptron, inputs, targets))
+    # print(accuracy(perceptron, inputs, targets))
 
-    print("------")
+    # print("------")
 
-    weights = [2, -4]
+    # weights = [2, -4]
+    # bias = 0
+    # learning_rate = 0.5
+    # examples = [
+    # ((0, 0), 0),
+    # ((0, 1), 0),
+    # ((1, 0), 0),
+    # ((1, 1), 1),
+    # ]
+    # max_epochs = 50
+
+    # weights, bias = learn_perceptron_parameters(weights, bias, examples, learning_rate, max_epochs)
+    # print(f"Weights: {weights}")
+    # print(f"Bias: {bias}\n")
+
+    # perceptron = construct_perceptron(weights, bias)
+
+    # print(perceptron((0,0)))
+    # print(perceptron((0,1)))
+    # print(perceptron((1,0)))
+    # print(perceptron((1,1)))
+    # print(perceptron((2,2)))
+    # print(perceptron((-3,-3)))
+    # print(perceptron((3,-1)))
+
+    # print("------")
+
+    # weights = [2, -4]
+    # bias = 0
+    # learning_rate = 0.5
+    # examples = [
+    # ((0, 0), 0),
+    # ((0, 1), 1),
+    # ((1, 0), 1),
+    # ((1, 1), 0),
+    # ]
+    # max_epochs = 50
+
+    # weights, bias = learn_perceptron_parameters(weights, bias, examples, learning_rate, max_epochs)
+    # print(f"Weights: {weights}")
+    # print(f"Bias: {bias}\n")
+    
+    weights = [-1, 1]
     bias = 0
     learning_rate = 0.5
     examples = [
-    ((0, 0), 0),
-    ((0, 1), 0),
-    ((1, 0), 0),
-    ((1, 1), 1),
+        ([-2, 0], 0),    # index 0 (first example)
+        ([-1, 1], 0),
+        ([1, 1], 0),
+        ([2, 0], 1),
+        ([1, -1], 1),
+        ([-1, -1], 1),
     ]
-    max_epochs = 50
-
-    weights, bias = learn_perceptron_parameters(weights, bias, examples, learning_rate, max_epochs)
-    print(f"Weights: {weights}")
-    print(f"Bias: {bias}\n")
-
-    perceptron = construct_perceptron(weights, bias)
-
-    print(perceptron((0,0)))
-    print(perceptron((0,1)))
-    print(perceptron((1,0)))
-    print(perceptron((1,1)))
-    print(perceptron((2,2)))
-    print(perceptron((-3,-3)))
-    print(perceptron((3,-1)))
-
-    print("------")
-
-    weights = [2, -4]
-    bias = 0
-    learning_rate = 0.5
-    examples = [
-    ((0, 0), 0),
-    ((0, 1), 1),
-    ((1, 0), 1),
-    ((1, 1), 0),
-    ]
-    max_epochs = 50
-
-    weights, bias = learn_perceptron_parameters(weights, bias, examples, learning_rate, max_epochs)
-    print(f"Weights: {weights}")
-    print(f"Bias: {bias}\n")
+    weights, bias = learn_perceptron_parameters(weights, bias, examples, learning_rate, 50)

@@ -119,3 +119,26 @@ if __name__=="__main__":
     answer = query(network, 'John', {'Mary': True})
     print("Probability of John calling if\n"
         "Mary has called: {:.5f}".format(answer[True]))    
+    
+    network = {
+    'A': {
+        'Parents': [],
+        'CPT': {
+            (): 0.4
+            }},
+
+    'B': {
+        'Parents': ['A'],
+        'CPT': {
+            (True,): 0.1,
+            (False,): 0.3,
+            }},
+
+    'C': {
+        'Parents': ['A'],
+        'CPT': {
+            (True,): 0.2,
+            (False,): 0.5,
+            }},
+    }
+    print(query(network, "B", {"C": True}))
